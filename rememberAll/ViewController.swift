@@ -25,7 +25,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
        
         
-        //Dropbox.authorizeFromController(self)
+        if (Dropbox.authorizedClient == nil) {
+            Dropbox.authorizeFromController(self)
+        }
         
         let imageData = UIImageJPEGRepresentation(myImageView.image!, 1)
        
