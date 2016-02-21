@@ -5,6 +5,24 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <scenes>
+        <!--Oxford View Controller-->
+        <scene sceneID="p39-c3-R0Q">
+            <objects>
+                <viewController id="1Gi-xS-LeK" customClass="OxfordViewController" customModule="rememberAll" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gRV-VI-TBt"/>
+                        <viewControllerLayoutGuide type="bottom" id="wih-MQ-lU6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="EPr-Y2-MY7">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="q4n-pb-7xw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1127" y="-260"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -40,6 +58,12 @@
                                             <action selector="photoFromLibrary:" destination="BYZ-38-t0r" id="shC-ZZ-b2Q"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="C10-5w-g3B"/>
+                                    <barButtonItem title="Analyze" id="O4G-H5-QAE">
+                                        <connections>
+                                            <action selector="Analyze:" destination="BYZ-38-t0r" id="sfk-2T-kC1"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="sDv-he-EJr"/>
                                     <barButtonItem title="Photo" id="9aK-cc-gq0">
                                         <connections>
@@ -63,6 +87,7 @@
                     <navigationItem key="navigationItem" id="ZHe-zu-Cgd"/>
                     <connections>
                         <outlet property="myImageView" destination="jDO-DO-G4a" id="mrY-tb-psa"/>
+                        <segue destination="1Gi-xS-LeK" kind="presentation" identifier="oxford" id="NTe-6n-fvu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
