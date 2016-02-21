@@ -81,22 +81,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                     print("Uploaded file name: \(metadata.name)")
                     print("Uploaded file revision: \(metadata.rev)")
                     
-                    // Get file (or folder) metadata
-//                    client.files.getMetadata(path: "/image.txt").response { response, error in
-//                        print("*** Get file metadata ***")
-//                        if let metadata = response {
-//                            if let file = metadata as? Files.FileMetadata {
-//                                print("This is a file with path: \(file.pathLower)")
-//                                print("File size: \(file.size)")
-//                            } else if let folder = metadata as? Files.FolderMetadata {
-//                                print("This is a folder with path: \(folder.pathLower)")
-//                            }
-//                        } else {
-//                            print(error!)
-//                        }
-//                    }
+    
                     
-//                    // Share link
+                   // Share link
                     client.sharing.createSharedLink(path: metadata.pathLower, shortUrl: false, pendingUpload: Sharing.PendingUploadMode.File).response({ (response, error) -> Void in
                         if let link = response {
                             self.oxfordUrl = link.url
@@ -126,7 +113,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     @IBAction func doneButtonPressed(segue: UIStoryboardSegue) {
-        print("Done button pressed")
+        myImageView.image = UIImage(named: "Analyze.jpg")
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
