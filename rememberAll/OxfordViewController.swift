@@ -11,9 +11,15 @@ import UIKit
 class OxfordViewController: UIViewController {
     
     var urlOxford: String?
+    var imageOxford: UIImage?
 
+    @IBOutlet weak var oxfordImageView: UIImageView!
+    @IBOutlet weak var oxfordLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
+        oxfordImageView.image = self.imageOxford
+        
+        
         
         print(urlOxford)
 
@@ -49,13 +55,16 @@ class OxfordViewController: UIViewController {
                 {
                 case 200:
                     
-                    let response = NSString (data: receivedData, encoding: NSUTF8StringEncoding)
-                    print(response)
                     
+                    
+                    print(receivedData)
+                    let json = JSON(data: receivedData)
+                    if let age = json[0]["faceAttributes"]["age"].int {
+                        self.oxfordLabel.text = "Your age is: \(age)!"
+                    }
                     if response == "SUCCESS"
                     {
-                        print(receivedData)
-                        print("Success")
+                        
                     }
                     
                 default:
@@ -63,13 +72,15 @@ class OxfordViewController: UIViewController {
                 }
         }
         dataTask.resume()
+        
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+
 
     /*
     // MARK: - Navigation

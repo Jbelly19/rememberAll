@@ -13,6 +13,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var myImageView: UIImageView!
     let picker = UIImagePickerController()
     var oxfordUrl: String?
+    var mainImage: UIImage?
     @IBAction func photoFromLibrary(sender: UIBarButtonItem) {
         picker.allowsEditing = false
         picker.sourceType = .PhotoLibrary
@@ -61,7 +62,19 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             
             // Upload a file
             let fileData = imageData
-            client.files.upload(path: "/image.jpg", body: fileData!).response { response, error in
+            let len = 10
+            let letters : NSString = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+            
+            let randomString : NSMutableString = NSMutableString(capacity: len)
+            
+            for (var i=0; i < len; i++){
+                let length = UInt32 (letters.length)
+                let rand = arc4random_uniform(length)
+                randomString.appendFormat("%C", letters.characterAtIndex(Int(rand)))
+            }
+
+            
+            client.files.upload(path: "/" + (randomString as String) + ".jpg", body: fileData!).response { response, error in
                print(error)
                 if let metadata = response {
                     print("*** Upload file ****")
@@ -112,17 +125,19 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
     }
     
+    @IBAction func doneButtonPressed(segue: UIStoryboardSegue) {
+        print("Done button pressed")
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if(segue.identifier == "oxford"){
-            let oxfordViewController = segue.destinationViewController as! OxfordViewController
+            let oxfordNavViewController = segue.destinationViewController as! UINavigationController
+            let oxfordViewController = oxfordNavViewController.topViewController! as! OxfordViewController
             
             oxfordViewController.urlOxford = self.oxfordUrl
-            
-            
-            
-            
-            
-            
+            oxfordViewController.imageOxford = self.mainImage
+        } else if (segue.identifier == "done") {
+            dismissViewControllerAnimated(true, completion: nil)
         }
         
     }
@@ -162,6 +177,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let chosenImage = info[UIImagePickerControllerOriginalImage] as! UIImage
         myImageView.contentMode = .ScaleAspectFill
         myImageView.image = chosenImage
+        self.mainImage = chosenImage
         dismissViewControllerAnimated(true, completion: nil)
     }
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {

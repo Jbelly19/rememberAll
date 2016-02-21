@@ -16,12 +16,59 @@
                     <view key="view" contentMode="scaleToFill" id="EPr-Y2-MY7">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SIK-yy-OWA">
+                                <rect key="frame" x="0.0" y="70" width="600" height="490"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tCc-Gh-S4e">
+                                        <rect key="frame" x="10" y="10" width="580" height="470"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="tCc-Gh-S4e" firstAttribute="centerX" secondItem="SIK-yy-OWA" secondAttribute="centerX" id="CRq-Lm-RFD"/>
+                                    <constraint firstItem="tCc-Gh-S4e" firstAttribute="leading" secondItem="SIK-yy-OWA" secondAttribute="leading" constant="10" id="N8p-OS-RNw"/>
+                                    <constraint firstItem="tCc-Gh-S4e" firstAttribute="centerY" secondItem="SIK-yy-OWA" secondAttribute="centerY" id="ufL-GM-aTY"/>
+                                    <constraint firstItem="tCc-Gh-S4e" firstAttribute="top" secondItem="SIK-yy-OWA" secondAttribute="top" constant="10" id="xPk-Sc-e7d"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Analyzing Data....Please Wait" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KZV-Oo-d1G">
+                                <rect key="frame" x="176" y="568" width="248" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="248" id="gYv-vR-Khe"/>
+                                    <constraint firstAttribute="height" constant="21" id="nMY-8Z-gsn"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="KZV-Oo-d1G" firstAttribute="centerX" secondItem="SIK-yy-OWA" secondAttribute="centerX" id="8Lb-YG-lfT"/>
+                            <constraint firstItem="SIK-yy-OWA" firstAttribute="top" secondItem="gRV-VI-TBt" secondAttribute="bottom" constant="6" id="UyA-ui-2Tn"/>
+                            <constraint firstItem="wih-MQ-lU6" firstAttribute="top" secondItem="KZV-Oo-d1G" secondAttribute="bottom" constant="11" id="WJF-yW-DVp"/>
+                            <constraint firstItem="KZV-Oo-d1G" firstAttribute="top" secondItem="SIK-yy-OWA" secondAttribute="bottom" constant="8" symbolic="YES" id="hQ9-ck-CHP"/>
+                            <constraint firstAttribute="trailing" secondItem="SIK-yy-OWA" secondAttribute="trailing" id="htC-YT-0fO"/>
+                            <constraint firstItem="SIK-yy-OWA" firstAttribute="leading" secondItem="EPr-Y2-MY7" secondAttribute="leading" id="lpE-Ip-ymR"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="q7O-Go-b3L">
+                        <barButtonItem key="leftBarButtonItem" style="done" systemItem="done" id="3fo-bi-TVo">
+                            <connections>
+                                <segue destination="peX-Z9-UEf" kind="unwind" unwindAction="doneButtonPressed:" id="KPK-88-W37"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="oxfordImageView" destination="tCc-Gh-S4e" id="Exp-8Q-ZRM"/>
+                        <outlet property="oxfordLabel" destination="KZV-Oo-d1G" id="Ody-Ad-lp3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q4n-pb-7xw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="peX-Z9-UEf" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1127" y="-260"/>
+            <point key="canvasLocation" x="1921" y="-588"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -35,10 +82,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wS0-Ig-vdX">
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wS0-Ig-vdX">
                                 <rect key="frame" x="0.0" y="64" width="600" height="490"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jDO-DO-G4a">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="12769552_10208224839326400_630604708_n.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="jDO-DO-G4a">
                                         <rect key="frame" x="10" y="10" width="580" height="470"/>
                                     </imageView>
                                 </subviews>
@@ -50,7 +97,7 @@
                                     <constraint firstItem="jDO-DO-G4a" firstAttribute="leading" secondItem="wS0-Ig-vdX" secondAttribute="leading" constant="10" id="jGZ-nx-gBf"/>
                                 </constraints>
                             </view>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gAK-hV-rUv">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gAK-hV-rUv">
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <items>
                                     <barButtonItem title="Library" id="0oH-zW-qnS">
@@ -87,7 +134,7 @@
                     <navigationItem key="navigationItem" id="ZHe-zu-Cgd"/>
                     <connections>
                         <outlet property="myImageView" destination="jDO-DO-G4a" id="mrY-tb-psa"/>
-                        <segue destination="1Gi-xS-LeK" kind="presentation" identifier="oxford" id="NTe-6n-fvu"/>
+                        <segue destination="Zt2-xx-SGb" kind="presentation" identifier="oxford" id="NTe-6n-fvu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -112,5 +159,26 @@
             </objects>
             <point key="canvasLocation" x="242" y="-385"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="8B4-Bt-iGo">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Zt2-xx-SGb" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="xm6-T7-nTm">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="1Gi-xS-LeK" kind="relationship" relationship="rootViewController" id="31P-CW-yGE"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0u0-UV-j3i" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1109" y="-588"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="12769552_10208224839326400_630604708_n.jpg" width="498" height="633"/>
+    </resources>
 </document>
